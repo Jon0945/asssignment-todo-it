@@ -28,12 +28,12 @@ public class TodoItem {
     public void setCreator(Person creator) {this.creator = creator;}
 
     //Constructor
-    public TodoItem(String title,String taskDescription,LocalDate deadline,boolean done, Person creator) {
+    public TodoItem(String title,String taskDescription,LocalDate deadline, Person creator) {
         id = itemCounter++;
         this.title = title;
         this.taskDescription = taskDescription;
         this.deadline = deadline;
-        this.done = done;
+        setDone(done);
         this.creator = creator;
     }
 
@@ -46,7 +46,7 @@ public class TodoItem {
     }
 
     public boolean isOverdue() {
-        if(LocalDate.now().isAfter(deadline)) {
+        if(LocalDate.now().isAfter(this.deadline)) {
             return true;
         }
         return false;

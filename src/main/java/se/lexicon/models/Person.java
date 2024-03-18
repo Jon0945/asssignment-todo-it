@@ -1,4 +1,4 @@
-package se.lexicon.classes;
+package se.lexicon.models;
 
 public class Person {
     //Static Field

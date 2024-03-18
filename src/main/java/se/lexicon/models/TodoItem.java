@@ -1,4 +1,4 @@
-package se.lexicon.classes;
+package se.lexicon.models;
 
 import java.time.LocalDate;
 
@@ -30,11 +30,11 @@ public class TodoItem {
     //Constructor
     public TodoItem(String title,String taskDescription,LocalDate deadline, Person creator) {
         id = itemCounter++;
-        this.title = title;
-        this.taskDescription = taskDescription;
-        this.deadline = deadline;
+        setTitle(title);
+        setTaskDescription(taskDescription);
+        setDeadline(deadline);
         setDone(done);
-        this.creator = creator;
+        setCreator(creator);
     }
 
     //Methods

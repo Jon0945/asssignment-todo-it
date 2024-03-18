@@ -3,7 +3,7 @@ package se.lexicon;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import se.lexicon.classes.Person;
+import se.lexicon.models.Person;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

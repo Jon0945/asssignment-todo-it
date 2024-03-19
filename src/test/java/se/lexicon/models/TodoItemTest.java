@@ -1,10 +1,8 @@
-package se.lexicon;
+package se.lexicon.models;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import se.lexicon.models.TodoItem;
-import se.lexicon.models.Person;
 
 import java.time.LocalDate;
 

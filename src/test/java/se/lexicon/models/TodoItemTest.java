@@ -105,4 +105,13 @@ public class TodoItemTest {
         //Assert
         assertFalse(result);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void title_exceptionThrownTest() {
+        testTodoItem.setTitle(null);
+    }
+    @Test(expected = IllegalArgumentException.class)
+    public void deadline_exceptionThrownTest() {
+        testTodoItem.setDeadline(null);
+    }
 }

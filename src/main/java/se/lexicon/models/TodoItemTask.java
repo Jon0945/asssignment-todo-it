@@ -29,7 +29,6 @@ public class TodoItemTask {
     //Constructor
     public TodoItemTask(TodoItem todoItem, Person assignee) {
         id = taskCounter++;
-        setAssigned(assigned);
         setTodoItem(todoItem);
         setAssignee(assignee);
     }

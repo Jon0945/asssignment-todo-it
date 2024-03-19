@@ -1,9 +1,8 @@
-package se.lexicon;
+package se.lexicon.models;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import se.lexicon.models.Person;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -40,43 +39,6 @@ public class PersonTest {
         assertEquals(expectedLastName,testPerson.getLastName());
         assertEquals(expectedEmail,testPerson.getEmail());
     }
-
-    @Test
-    public void testSetFirstName() {
-        //Arrange
-        String personFirstName = "John";
-
-        //Act
-        testPerson.setFirstName(personFirstName);
-
-        //Assert
-        assertEquals(personFirstName,testPerson.getFirstName());
-    }
-
-    @Test
-    public void testSetLastName() {
-        //Arrange
-        String personLastName = "Doe";
-
-        //Act
-        testPerson.setLastName(personLastName);
-
-        //Assert
-        assertEquals(personLastName,testPerson.getLastName());
-    }
-
-    @Test
-    public void testSetEmail() {
-        //Arrange
-        String personEmail = "john.doe@gmail.com";
-
-        //Act
-        testPerson.setEmail(personEmail);
-
-        //Assert
-        assertEquals(personEmail,testPerson.getEmail());
-    }
-
     @Test
     public void testGetSummary() {
         //Act
@@ -86,5 +48,20 @@ public class PersonTest {
         assertTrue(result.contains(testFirstName));
         assertTrue(result.contains(testLastName));
         assertTrue(result.contains(testEmail));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void firstName_exceptionThrownTest() {
+        testPerson.setFirstName(null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void lastName_exceptionThrownTest() {
+        testPerson.setLastName(null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void email_exceptionThrownTest() {
+        testPerson.setEmail(null);
     }
 }

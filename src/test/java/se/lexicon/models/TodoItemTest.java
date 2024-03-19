@@ -1,10 +1,8 @@
-package se.lexicon;
+package se.lexicon.models;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import se.lexicon.models.TodoItem;
-import se.lexicon.models.Person;
 
 import java.time.LocalDate;
 
@@ -106,5 +104,14 @@ public class TodoItemTest {
 
         //Assert
         assertFalse(result);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void title_exceptionThrownTest() {
+        testTodoItem.setTitle(null);
+    }
+    @Test(expected = IllegalArgumentException.class)
+    public void deadline_exceptionThrownTest() {
+        testTodoItem.setDeadline(null);
     }
 }

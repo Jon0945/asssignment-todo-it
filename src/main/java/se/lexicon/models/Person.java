@@ -1,5 +1,7 @@
 package se.lexicon.models;
 
+import java.util.Objects;
+
 public class Person {
     //Static Field
     private static int personCounter = 1;
@@ -8,6 +10,7 @@ public class Person {
     private String firstName;
     private String lastName;
     private String email;
+    private AppUser credentials;
 
     //Constructor
     public Person( String firstName, String lastName, String email) {
@@ -37,12 +40,34 @@ public class Person {
             throw new IllegalArgumentException("Email cannot be null or empty");
         }
         this.email = email;}
+    public AppUser getCredentials() {
+        return credentials;
+    }
+    public void setCredentials(AppUser credentials) {
+        this.credentials = credentials;
+    }
 
-    //Methods
-    public String getSummary() {
-        return "\nID: "+ id +
-                "\nName: "+ firstName + " " + lastName +
-                "\nEmail: "+ email;
+    //Equals & Hashcode Override
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return id == person.id && Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName) && Objects.equals(email, person.email);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, email);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
 

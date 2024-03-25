@@ -36,6 +36,7 @@ public class AppUserTest {
         assertEquals(expectedPassWord,testAppUser.getPassword());
         assertEquals(expectedAppRole,testAppUser.getRole());
     }
+
     @Test
     public void testEqualsAndHashCode() {
         //Arrange
@@ -44,8 +45,6 @@ public class AppUserTest {
         //Assert
         assertEquals(testAppUser2,testAppUser);
         assertEquals(testAppUser2.hashCode(),testAppUser.hashCode());
-
-
     }
 
     @Test

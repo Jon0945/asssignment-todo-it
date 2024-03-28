@@ -4,8 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class PersonTest {
     private Person testPerson;
@@ -39,10 +38,20 @@ public class PersonTest {
         assertEquals(expectedLastName,testPerson.getLastName());
         assertEquals(expectedEmail,testPerson.getEmail());
     }
+
     @Test
-    public void testGetSummary() {
+    public void testEqualsAndHashCode() {
+        //Arrange
+        Person testPerson2 = new Person(testFirstName,testLastName,testEmail);
+
+        //Assert
+        assertNotEquals(testPerson2,testPerson);
+        assertNotEquals(testPerson2.hashCode(),testPerson.hashCode());
+    }
+    @Test
+    public void testToString() {
         //Act
-        String result = testPerson.getSummary();
+        String result = testPerson.toString();
 
         //Assert
         assertTrue(result.contains(testFirstName));

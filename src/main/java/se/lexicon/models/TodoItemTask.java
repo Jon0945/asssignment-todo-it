@@ -1,11 +1,9 @@
 package se.lexicon.models;
 
 import java.util.Objects;
+import se.lexicon.sequencer.TodoItemTaskIdSequencer;
 
 public class TodoItemTask {
-    //Static field
-    private static int taskCounter = 1;
-
     //Fields
     private int id;
     private boolean assigned;
@@ -30,7 +28,7 @@ public class TodoItemTask {
 
     //Constructor
     public TodoItemTask(TodoItem todoItem, Person assignee) {
-        id = taskCounter++;
+        id = TodoItemTaskIdSequencer.nextId();
         setTodoItem(todoItem);
         setAssignee(assignee);
     }

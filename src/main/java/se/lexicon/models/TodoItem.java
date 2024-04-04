@@ -1,12 +1,10 @@
 package se.lexicon.models;
 
+import se.lexicon.sequencer.TodoItemIdSequencer;
 import java.time.LocalDate;
 import java.util.Objects;
 
 public class TodoItem {
-    //Static Field
-    private static int itemCounter = 1;
-
     //Fields
     private int id;
     private String title;
@@ -68,7 +66,7 @@ public class TodoItem {
 
     //Constructor
     public TodoItem(String title, String taskDescription, LocalDate deadline, Person creator) {
-        id = itemCounter++;
+        id = TodoItemIdSequencer.nextId();
         setTitle(title);
         setTaskDescription(taskDescription);
         setDeadline(deadline);

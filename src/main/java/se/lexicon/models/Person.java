@@ -1,10 +1,9 @@
 package se.lexicon.models;
 
 import java.util.Objects;
+import se.lexicon.sequencer.PersonIdSequencer;
 
 public class Person {
-    //Static Field
-    private static int personCounter = 1;
     //Fields
     private int id;
     private String firstName;
@@ -14,7 +13,7 @@ public class Person {
 
     //Constructor
     public Person( String firstName, String lastName, String email) {
-        id = personCounter++;
+        id = PersonIdSequencer.nextId();
         setFirstName(firstName);
         setLastName(lastName);
         setEmail(email);

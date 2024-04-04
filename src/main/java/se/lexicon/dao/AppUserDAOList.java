@@ -29,7 +29,7 @@ public class AppUserDAOList implements AppUserDAO{
         return null;
     }
     @Override
-    public List findAll() { return appUsers;}
+    public List<AppUser> findAll() { return appUsers;}
     @Override
     public void remove(String username) {
         for(AppUser user : appUsers) {

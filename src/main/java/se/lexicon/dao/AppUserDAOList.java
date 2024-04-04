@@ -3,15 +3,15 @@ package se.lexicon.dao;
 import se.lexicon.models.AppUser;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class AppUserDAOList implements AppUserDAO{
     //Field
-    private static List<AppUser> appUsers;
+    private static Collection<AppUser> appUsers;
 
     //Constructor
     public AppUserDAOList() {
-        appUsers = new ArrayList<AppUser>();}
+        appUsers = new ArrayList<>();}
 
     @Override
     public AppUser persist(AppUser appUser) {
@@ -29,7 +29,7 @@ public class AppUserDAOList implements AppUserDAO{
         return null;
     }
     @Override
-    public List<AppUser> findAll() { return appUsers;}
+    public Collection<AppUser> findAll() { return appUsers;}
     @Override
     public void remove(String username) {
         for(AppUser user : appUsers) {

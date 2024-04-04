@@ -3,13 +3,13 @@ package se.lexicon.dao;
 import se.lexicon.models.Person;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class PersonDAOList implements PersonDAO {
-    private static List<Person> personList;
+    private static Collection<Person> personList;
 
     public PersonDAOList() {
-        personList = new ArrayList<Person>();
+        personList = new ArrayList<>();
     }
     @Override
     public Person persist(Person person) {
@@ -33,7 +33,7 @@ public class PersonDAOList implements PersonDAO {
         }
         return null;
     }
-    public List<Person> findAll() {
+    public Collection<Person> findAll() {
         return personList;
     }
     public void remove(int id) {

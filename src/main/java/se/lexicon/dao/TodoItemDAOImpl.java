@@ -10,6 +10,8 @@ import java.util.Collection;
 public class TodoItemDAOImpl implements TodoItemDAO {
     private static Collection<TodoItem> todoItems;
 
+    public TodoItemDAOImpl(){todoItems = new ArrayList<>();}
+
     @Override
     public TodoItem persist(TodoItem item) {
         todoItems.add(item);

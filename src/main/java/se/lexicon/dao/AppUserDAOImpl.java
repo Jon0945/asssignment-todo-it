@@ -5,12 +5,12 @@ import se.lexicon.models.AppUser;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class AppUserDAOList implements AppUserDAO{
+public class AppUserDAOImpl implements AppUserDAO{
     //Field
     private static Collection<AppUser> appUsers;
 
     //Constructor
-    public AppUserDAOList() {
+    public AppUserDAOImpl() {
         appUsers = new ArrayList<>();}
 
     @Override

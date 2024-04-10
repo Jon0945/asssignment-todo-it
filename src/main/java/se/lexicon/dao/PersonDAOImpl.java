@@ -5,10 +5,10 @@ import se.lexicon.models.Person;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class PersonDAOList implements PersonDAO {
+public class PersonDAOImpl implements PersonDAO {
     private static Collection<Person> personList;
 
-    public PersonDAOList() {
+    public PersonDAOImpl() {
         personList = new ArrayList<>();
     }
     @Override
@@ -25,6 +25,7 @@ public class PersonDAOList implements PersonDAO {
         }
         return null;
     }
+    @Override
     public Person findByEmail(String email) {
         for(Person p : personList) {
             if(p.getEmail().equals(email)) {
@@ -33,9 +34,11 @@ public class PersonDAOList implements PersonDAO {
         }
         return null;
     }
+    @Override
     public Collection<Person> findAll() {
         return personList;
     }
+    @Override
     public void remove(int id) {
         personList.removeIf(p -> p.getId() == id);
     }

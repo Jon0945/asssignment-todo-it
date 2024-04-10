@@ -69,13 +69,12 @@ public class TodoItemTaskTest {
     }
 
     @Test
-    public void testGetSummary() {
+    public void testToString() {
         //Act
-        String result = testTask.getSummary();
+        String result = testTask.toString();
 
         //Assert
         assertTrue(result.contains(testTodoItem.getTitle()));
-        assertTrue(result.contains(testPerson.getFirstName() + " " + testPerson.getLastName()));
     }
 
     @Test(expected = IllegalArgumentException.class)

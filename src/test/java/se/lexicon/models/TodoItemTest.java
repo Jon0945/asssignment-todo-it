@@ -71,15 +71,14 @@ public class TodoItemTest {
     }
 
     @Test
-    public void testGetSummary() {
+    public void testToString() {
         //Act
-        String result = testTodoItem.getSummary();
+        String result = testTodoItem.toString();
 
         //Assert
         assertTrue(result.contains(testTitle));
         assertTrue(result.contains(testTaskDescription));
         assertTrue(result.contains(String.valueOf(testDeadLine)));
-        assertTrue(result.contains(testCreator.getFirstName() + " " + testCreator.getLastName()));
     }
 
     @Test

@@ -5,7 +5,7 @@ import se.lexicon.models.Todo;
 
 import java.util.Collection;
 
-public interface Todoitems {
+public interface TodoItems {
     Todo create(Todo item);
     Collection<Todo> findAll();
     Todo findById(int id);

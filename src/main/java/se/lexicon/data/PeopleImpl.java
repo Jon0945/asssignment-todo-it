@@ -1,18 +1,18 @@
-package se.lexicon.dao;
+package se.lexicon.data;
 
 import se.lexicon.models.Person;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class PersonDAOImpl implements PersonDAO {
+public class PeopleImpl implements People {
     private static Collection<Person> personList;
 
-    public PersonDAOImpl() {
+    public PeopleImpl() {
         personList = new ArrayList<>();
     }
     @Override
-    public Person persist(Person person) {
+    public Person create(Person person) {
         personList.add(person);
         return person;
     }
@@ -39,7 +39,7 @@ public class PersonDAOImpl implements PersonDAO {
         return personList;
     }
     @Override
-    public void remove(int id) {
+    public void deleteById(int id) {
         personList.removeIf(p -> p.getId() == id);
     }
 }

@@ -1,17 +1,16 @@
 package se.lexicon.models;
 
-import se.lexicon.sequencer.TodoItemIdSequencer;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class TodoItem {
+public class Todo {
     //Fields
     private int id;
     private String title;
-    private String taskDescription;
+    private String description;
     private LocalDate deadline;
     private boolean done;
-    private Person creator;
+    private int assigneeId;
 
     //Getters & Setters
     public int getId() {
@@ -29,12 +28,12 @@ public class TodoItem {
         this.title = title;
     }
 
-    public String getTaskDescription() {
-        return taskDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setTaskDescription(String taskDescription) {
-        this.taskDescription = taskDescription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public LocalDate getDeadline() {
@@ -56,22 +55,22 @@ public class TodoItem {
         this.done = done;
     }
 
-    public Person getCreator() {
-        return creator;
+    public int getAssigneeId() {
+        return assigneeId;
     }
 
-    public void setCreator(Person creator) {
-        this.creator = creator;
+    public void setAssigneeId(int assigneeId) {
+        this.assigneeId = assigneeId;
     }
 
     //Constructor
-    public TodoItem(String title, String taskDescription, LocalDate deadline, Person creator) {
-        id = TodoItemIdSequencer.nextId();
+    public Todo(String title, String taskDescription, LocalDate deadline, int assigneeId) {
+        id = this.id;
         setTitle(title);
-        setTaskDescription(taskDescription);
+        setDescription(taskDescription);
         setDeadline(deadline);
         setDone(done);
-        setCreator(creator);
+        setAssigneeId(assigneeId);
     }
 
     //Methods
@@ -90,13 +89,13 @@ public class TodoItem {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TodoItem todoItem = (TodoItem) o;
-        return id == todoItem.id && done == todoItem.done && Objects.equals(title, todoItem.title) && Objects.equals(taskDescription, todoItem.taskDescription) && Objects.equals(deadline, todoItem.deadline);
+        Todo todoitem = (Todo) o;
+        return id == todoitem.id && done == todoitem.done && Objects.equals(title, todoitem.title) && Objects.equals(description, todoitem.description) && Objects.equals(deadline, todoitem.deadline);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, taskDescription, deadline, done);
+        return Objects.hash(id, title, description, deadline, done);
     }
 
     @Override
@@ -104,7 +103,7 @@ public class TodoItem {
         return "TodoItem{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", taskDescription='" + taskDescription + '\'' +
+                ", taskDescription='" + description + '\'' +
                 ", deadline=" + deadline +
                 ", done=" + done +
                 '}';

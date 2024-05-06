@@ -13,8 +13,8 @@ public class Person {
     //Constructor
     public Person(int id, String firstName, String lastName) {
         this.id = id;
-        setFirstName(firstName);
-        setLastName(lastName);
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public Person(String firstName,String lastName) {
@@ -24,17 +24,7 @@ public class Person {
     //Getters & Setters
     public int getId() {return id;}
     public String getFirstName() {return firstName;}
-    public void setFirstName(String firstName) {
-        if(firstName == null || firstName.trim().isEmpty()){
-            throw new IllegalArgumentException("FirstName cannot be null or empty");
-        }
-        this.firstName = firstName;}
     public String getLastName() {return lastName;}
-    public void setLastName(String lastName) {
-        if(lastName == null || lastName.trim().isEmpty()){
-            throw new IllegalArgumentException("LastName cannot be null or empty");
-        }
-        this.lastName = lastName;}
 
     //Equals & Hashcode Override
     @Override

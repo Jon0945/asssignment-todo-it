@@ -79,7 +79,7 @@ public class PeopleImpl implements People {
             }
         } catch (SQLException e) {
             String errorMessage = "And error occurred while finding person with ID: " + inputId;
-            throw new CustomSQLException(errorMessage);
+            throw new CustomSQLException(errorMessage,e);
         }
         return null;
     }
@@ -99,7 +99,7 @@ public class PeopleImpl implements People {
                 }
         } catch (SQLException e) {
             String errorMessage = "An error occurred while finding person(s) with name: " + name;
-            throw new CustomSQLException(errorMessage);
+            throw new CustomSQLException(errorMessage,e);
         }
         return resultList;
     }
@@ -124,7 +124,7 @@ public class PeopleImpl implements People {
             }
         } catch (SQLException e) {
             String errorMessage = "An error occurred. Person not updated.";
-            throw new CustomSQLException(errorMessage);
+            throw new CustomSQLException(errorMessage,e);
         }
     }
 
@@ -144,7 +144,7 @@ public class PeopleImpl implements People {
             }
         } catch (SQLException e) {
             String errorMessage = "An error occured. Person not deleted.";
-            throw new CustomSQLException(errorMessage);
+            throw new CustomSQLException(errorMessage,e);
         }
     }
 }

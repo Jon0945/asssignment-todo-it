@@ -8,14 +8,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class TodoItemsImpl implements TodoItems {
-    private static final String CREATE_TODO_ITEM = "INSERT INTO todo_item(title,description,deadline) VALUES(?,?,?)";
-    private static final String FIND_ALL = "SELECT * FROM todo_items";
-    private static final String FIND_BY_ID = "SELECT * FROM todo_items WHERE ID = ?";
-    private static final String FIND_ALL_BY_DONE_STATUS = "SELECT * from todo_items WHERE done = ?";
-    private static final String FIND_BY_ASSIGNEE = "SELECT * FROM todo_items WHERE assignee_id = ?";
-    private static final String FIND_BY_UNASSIGNED_TODO_ITEMS = "SELECT * FROM todo_items WHERE assignee_id IS NULL";
-    private static final String UPDATE = "UPDATE todo_items SET title = ?, description = ?, deadline = ? WHERE todo_id = ?";
-    private static final String DELETE = "DELETE FROM todo_items WHERE todo_id = ?";
+
 
 
     private PreparedStatement createCreateTodoItem(Connection connection, Todo newItem) throws SQLException {

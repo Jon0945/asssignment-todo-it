@@ -1,27 +1,25 @@
 package se.lexicon.models;
 
 import java.util.Objects;
+import se.lexicon.sequencer.TodoItemTaskIdSequencer;
 
 public class TodoItemTask {
-    //Static field
-    private static int taskCounter = 1;
-
     //Fields
     private int id;
     private boolean assigned;
-    private TodoItem todoItem;
+    private Todo todoitem;
     private Person assignee;
 
     //Getters & Setters
     public int getId() {return id;}
     public boolean isAssigned() {return assigned;}
     public void setAssigned(boolean assigned) {this.assigned = assigned;}
-    public TodoItem getTodoItem() {return todoItem;}
-    public void setTodoItem(TodoItem todoItem) {
-        if(todoItem == null) {
+    public Todo getTodoItem() {return todoitem;}
+    public void setTodoItem(Todo todoitem) {
+        if(todoitem == null) {
             throw new IllegalArgumentException("todoItem cannot be null");
         }
-        this.todoItem = todoItem;}
+        this.todoitem = todoitem;}
     public Person getAssignee() {return assignee;}
     public void setAssignee(Person assignee) {
             this.assignee = assignee;
@@ -29,9 +27,9 @@ public class TodoItemTask {
         }
 
     //Constructor
-    public TodoItemTask(TodoItem todoItem, Person assignee) {
-        id = taskCounter++;
-        setTodoItem(todoItem);
+    public TodoItemTask(Todo todoitem, Person assignee) {
+        id = TodoItemTaskIdSequencer.nextId();
+        setTodoItem(todoitem);
         setAssignee(assignee);
     }
 
@@ -47,11 +45,11 @@ public class TodoItemTask {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TodoItemTask that = (TodoItemTask) o;
-        return id == that.id && assigned == that.assigned && Objects.equals(todoItem, that.todoItem);
+        return id == that.id && assigned == that.assigned && Objects.equals(todoitem, that.todoitem);
     }
     @Override
     public int hashCode() {
-        return Objects.hash(id, assigned, todoItem);
+        return Objects.hash(id, assigned, todoitem);
     }
 
     @Override
@@ -59,7 +57,7 @@ public class TodoItemTask {
         return "TodoItemTask{" +
                 "id=" + id +
                 ", assigned=" + assigned +
-                ", todoItem=" + todoItem +
+                ", todoItem=" + todoitem +
                 '}';
     }
 }

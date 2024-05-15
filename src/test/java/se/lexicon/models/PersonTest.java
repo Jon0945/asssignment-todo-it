@@ -10,11 +10,11 @@ public class PersonTest {
     private Person testPerson;
     private final String testFirstName = "Tony";
     private final String testLastName = "Test";
-    private final String testEmail = "tony.test@gmail.com";
+
 
     @Before
     public void createPerson() {
-        testPerson = new Person(testFirstName,testLastName,testEmail);
+        testPerson = new Person(testFirstName,testLastName);
     }
 
     @After
@@ -27,7 +27,7 @@ public class PersonTest {
         //Arrange
         String expectedFirstName = testFirstName;
         String expectedLastName = testLastName;
-        String expectedEmail = testEmail;
+
 
         //Act
         //Done by @Before
@@ -36,13 +36,13 @@ public class PersonTest {
         assertTrue(testPerson.getId() > 0);
         assertEquals(expectedFirstName,testPerson.getFirstName());
         assertEquals(expectedLastName,testPerson.getLastName());
-        assertEquals(expectedEmail,testPerson.getEmail());
+
     }
 
     @Test
     public void testEqualsAndHashCode() {
         //Arrange
-        Person testPerson2 = new Person(testFirstName,testLastName,testEmail);
+        Person testPerson2 = new Person(testFirstName,testLastName);
 
         //Assert
         assertNotEquals(testPerson2,testPerson);
@@ -67,10 +67,5 @@ public class PersonTest {
     @Test(expected = IllegalArgumentException.class)
     public void lastName_exceptionThrownTest() {
         testPerson.setLastName(null);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void email_exceptionThrownTest() {
-        testPerson.setEmail(null);
     }
 }

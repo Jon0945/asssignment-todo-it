@@ -7,12 +7,12 @@ import org.junit.Test;
 import java.time.LocalDate;
 
 import static org.junit.Assert.*;
-public class TodoItemTaskTest {
+public class TodoTaskTest {
     private Person testPerson;
     private final String testFirstName = "Tony";
     private final String testLastName = "Test";
     private final String testEmail = "tony.test@gmail.com";
-    private TodoItem testTodoItem;
+    private Todo testTodoitem;
     private final String testTitle = "Do Laundry";
     private final String testTaskDescription = "Transform filthy clothes into clean clothes";
     private final LocalDate testDeadLine = LocalDate.parse("2024-03-25");
@@ -21,20 +21,20 @@ public class TodoItemTaskTest {
     @Before
     public void createTestObjects() {
         testPerson = new Person(testFirstName,testLastName,testEmail);
-        testTodoItem = new TodoItem(testTitle,testTaskDescription,testDeadLine,testPerson);
-        testTask = new TodoItemTask(testTodoItem,testPerson);
+        testTodoitem = new Todo(testTitle,testTaskDescription,testDeadLine,testPerson);
+        testTask = new TodoItemTask(testTodoitem,testPerson);
     }
     @After
     public void killTestObjects() {
         testPerson = null;
-        testTodoItem = null;
+        testTodoitem = null;
         testTask = null;
     }
 
     @Test
     public void beforeWorks() {
         //Arrange
-        TodoItem expectedItem = testTodoItem;
+        Todo expectedItem = testTodoitem;
         Person expectedAssignee = testPerson;
 
         //Act
@@ -69,13 +69,12 @@ public class TodoItemTaskTest {
     }
 
     @Test
-    public void testGetSummary() {
+    public void testToString() {
         //Act
-        String result = testTask.getSummary();
+        String result = testTask.toString();
 
         //Assert
-        assertTrue(result.contains(testTodoItem.getTitle()));
-        assertTrue(result.contains(testPerson.getFirstName() + " " + testPerson.getLastName()));
+        assertTrue(result.contains(testTodoitem.getTitle()));
     }
 
     @Test(expected = IllegalArgumentException.class)
